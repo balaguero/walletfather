@@ -2,6 +2,9 @@
 ### Developed by Juan Ignacio Balaguero
 ### Github: https://github.com/balaguero
 
+### Stack:
+solidity, hardhat, express, mongodb, angular 12
+
 ## History
 The mafia has arrived in the city and is demanding businesses to pay a commission for transacting ethereum in exchange for "security".
 You will become a WalletFather, the man at the head of your gang, and you'll have the ability of create wallets, control all transactions and charge for them. Nice business, uh?
