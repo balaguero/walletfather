@@ -32,7 +32,7 @@ yarn deploy:ropsten // Deploys contract to ropsten network
 ```
 
 # Try demo app
-
+## http://ec2-54-159-114-21.compute-1.amazonaws.com:3000
 
 # Or clone the repo and..
 
