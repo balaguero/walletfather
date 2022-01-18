@@ -57,12 +57,12 @@ run `npm start`
 Open a browser and navigate to http://localhost:4200
 
 ## Run the app in ropsten testnet
+0- create an account in alchemy.com, associate your wallet and create an application. Put your app key on `walletfather/backend/config/envivonment.js`
 1- Compile and deploy smart contract
 In a terminal window run go to `walletfather/smart_contract` and run`npm install && yarn chain`
 In another terminal window go to `walletfather/smart_contract` and deploy the contract by rinning `yarn deploy:ropsten`
 It outputs the contract address in console, copy it and paste in `walletfather/backend/config/envivonment.js` > contractAddress entries
 It also should create `artifacts` and `typechain-types`. Artifacts contains contract ABI used as interface in backend repository.
-This will be deployed used Alchemy, you can configure your own platform on `walletfather/backend/config/envivonment.js`.
 
 2- Run the backend
 
