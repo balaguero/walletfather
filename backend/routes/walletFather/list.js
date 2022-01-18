@@ -1,5 +1,5 @@
 const WalletFatherController = require('../../controller/walletFather.controller');
-const hexToInt = require('../../utils/hexToInt');
+const hexToNumber = require('../../utils/hexToNumber');
 const _ = require('lodash');
 
 const list = (ownerPrivateKey) => {
@@ -8,7 +8,7 @@ const list = (ownerPrivateKey) => {
             const mappedResponse = _.map(response, (item) => {
                 return {
                     name: item.name,
-                    id:  hexToInt(item.id),
+                    id:  hexToNumber(item.id),
                     owner: item.owner
                 }
             });

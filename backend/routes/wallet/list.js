@@ -1,5 +1,5 @@
 const WalletController = require('../../controller/wallet.controller');
-const hexToInt = require('../../utils/hexToInt');
+const hexToNumber = require('../../utils/hexToNumber');
 const _ = require('lodash');
 
 const list = (ownerPrivateKey) => {
@@ -9,8 +9,8 @@ const list = (ownerPrivateKey) => {
                 return {
                     address: item.walletAddress,
                     privateKey: item.privateKey,
-                    id: hexToInt(item.id),
-                    parent: hexToInt(item.parent),
+                    id: hexToNumber(item.id),
+                    parent: hexToNumber(item.parent),
                 }
             });
             return Promise.resolve(mappedResponse);
