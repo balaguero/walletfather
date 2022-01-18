@@ -1,0 +1,95 @@
+<div class="container">
+    <h1>Dashboard</h1>
+    
+    <mat-card class="about mb-12">
+        <h3>About dashboard:</h3>
+        <p>Dashboard data is loaded by hitting the API using auth token. This is intended since this dashboard version aims to interact with the express API, by creating walletFathers and wallets.</p>
+        <p>The way we are getting the data is trough private key validation, not trough web3. Dashboard web3 will be added soon.</p>
+    </mat-card>
+
+    <mat-card class="wallet mb-12">
+        <h3>Your main wallet</h3>
+
+        <div *ngIf="!isProfileLoading">
+            <div>
+                <span>Address: {{ userProfile.wallet.address }}</span>
+            </div>
+            <div>
+                <span>PrivateKey: </span>
+                <button 
+                    mat-button
+                    mat-stroked-button
+                    (click)="togglePrivateKey()">
+                    <span *ngIf="!showPrivateKey">Show</span>
+                    <span *ngIf="showPrivateKey">Hide</span>
+                </button>
+                <span *ngIf="!showPrivateKey">********</span>
+                <span *ngIf="showPrivateKey">{{ userProfile.wallet.privateKey }}</span>
+            </div>
+        </div>
+
+        <mat-spinner
+            *ngIf="isProfileLoading">
+        </mat-spinner>
+    </mat-card>
+
+    <mat-card class="walletFather mb-12">
+        <h3>Your WalletFather</h3>
+        <div
+            *ngIf="!isWalletFatherLoading && walletFather"
+            class="walletFather-container"
+            fxLayout="row">
+            <img
+                alt="Walletfather Logo"
+                class="mr-24"
+                src="assets/logo.png">
+
+            <div *ngIf="walletFather">
+                <div>Name: {{ walletFather.name }}</div>
+                <div>Id: {{ walletFather.id }}</div>
+                <div>Owner: {{ walletFather.owner }}</div>
+            </div>
+        </div>
+        <div *ngIf="!isWalletFatherLoading && !walletFather">
+            <h4>Welcome, start creating a walletFather</h4>
+
+            <mat-form-field
+                appearance="outline">
+                <mat-label>Pick a name</mat-label>
+                <input
+                    matInput
+                    [(ngModel)]="newWalletFatherName"
+                    [ngModelOptions]="{standalone: true}"/>
+            </mat-form-field>
+
+            <button
+                mat-raised-button
+                mat-button
+                (click)="createWalletFather()">
+                Create
+            </button>
+        </div>
+        <mat-spinner
+            *ngIf="isWalletFatherLoading">
+            Wait 30s
+        </mat-spinner>
+    </mat-card>
+
+    <mat-card *ngIf="!isWalletFatherLoading">
+        <h3>Your Wallets ({{ wallets.length }})</h3>
+        <div *ngIf="!isWalletLoading">
+            <button
+                mat-button
+                mat-raised-button
+                (click)="createWallet()">
+                Create Wallet
+            </button>
+            <app-wallet-list [wallets]=wallets>
+            </app-wallet-list>
+        </div>
+        <mat-spinner
+            *ngIf="isWalletLoading">
+            Wait 30s
+        </mat-spinner>
+    </mat-card>
+</div>

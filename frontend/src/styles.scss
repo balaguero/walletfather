@@ -1,0 +1,94 @@
+@import './variables.scss';
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #383735;
+    color: white;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.mb-12 {
+    margin-bottom: 12px;
+}
+
+.ml-12 {
+    margin-left: 12px;
+}
+
+.mr-12 {
+    margin-right: 12px;
+}
+
+.mr-24 {
+    margin-right: 24px;
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.border-small {
+    border: 1px solid darkgray;
+    padding: 4px;
+}
+
+.text-success {
+    color: $success-color !important;
+}
+
+.text-error {
+    color: $error-color !important;
+}
+
+.text-warning {
+    color: $warning-color !important;
+}
+
+.text-info {
+    color: $info-color !important;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.container {
+    padding: 20px;
+}
+
+th, td {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
+// ADMIN COMMON STYLES
+.table-container {
+    overflow-x: scroll !important;
+
+    .mat-table {
+        min-width: 600px;
+    }
+}

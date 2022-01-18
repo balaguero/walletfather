@@ -1,0 +1,54 @@
+<mat-toolbar class="app-navbar">
+    <div fxLayout="row">
+        <div class="logo">
+            <span [routerLink]="['']">
+                Walletfather
+            </span>
+        </div>
+
+        <div
+            class="auth"
+            *ngIf="!isLoggedIn">
+            <button
+                mat-button
+                mat-raised-button
+                (click)="openAuthDialog()">
+                Login
+            </button>
+        </div>
+
+        <div *ngIf="isLoggedIn">
+            <span
+                [matMenuTriggerFor]="menu"
+                class="menu-toggle"
+            >
+                <mat-icon>menu</mat-icon>
+            </span>
+            <mat-menu
+                #menu="matMenu"
+                class="menu-body">
+                <button
+                    mat-menu-item
+                    [routerLink]="['dashboard']">
+                    Dashboard
+                </button>
+                <button
+                    mat-menu-item
+                    [routerLink]="['dashboard-web3']">
+                    Dashboard Web3 (soon)
+                </button>
+                <button
+                    mat-menu-item
+                    [routerLink]="['transactions']">
+                    Transactions (soon)
+                </button>
+                <button
+                    mat-menu-item
+                    (click)="logout()">
+                    Logout
+                </button>
+            </mat-menu>
+        </div>
+    </div>
+    
+</mat-toolbar>

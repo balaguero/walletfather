@@ -1,0 +1,79 @@
+<section class="register-main-section">
+    <h2 class="color-primary">{{ alternativeText ? alternativeText : 'Create account' }}</h2>
+    <form 
+        [formGroup]="registerForm" 
+        (ngSubmit)="onSubmit()">
+        <!-- Email -->
+        <mat-form-field class="full-width mb-12">
+            <input
+                type="email"
+                id="email"
+                formControlName="email"
+                matInput
+                placeholder="Email"> 
+            <mat-error *ngIf="registerForm.get('email').touched && registerForm.get('email').hasError('pattern') && !registerForm.get('email').hasError('required')">
+                Please enter a valid email
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('email').touched && registerForm.get('email').hasError('required')">
+                Please enter your email
+            </mat-error>
+        </mat-form-field>
+        <!-- Password -->
+        <mat-form-field class="full-width mb-12">
+            <input
+                type="password"
+                id="password"
+                class="form-control"
+                formControlName="password"
+                matInput
+                placeholder="Password"> 
+            <mat-error *ngIf="registerForm.get('password').touched && registerForm.get('password').hasError('required')">
+                Please enter your password
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('password').touched && registerForm.get('password').hasError('minlength') && !registerForm.get('password').hasError('required')">
+                Password must have at least 10 characters
+            </mat-error>
+        </mat-form-field>
+        <!-- Confirm Password -->
+        <mat-form-field class="full-width">
+            <input
+                type="password"
+                id="confirmPassword"
+                class="form-control"
+                formControlName="confirmPassword"
+                matInput
+                placeholder="Confirm password">
+            <mat-error
+                *ngIf="registerForm.get('confirmPassword').touched && registerForm.get('confirmPassword').hasError('required')">
+                Please confirm your password
+            </mat-error>
+            <mat-error
+                *ngIf="registerForm.get('confirmPassword').touched && registerForm.get('confirmPassword').hasError('MatchPassword')">
+                Passwords dont' match
+            </mat-error>
+        </mat-form-field>
+        <!-- Submit -->
+        <div>
+            <button
+                mat-raised-button
+                color="accent"
+                type="submit"
+                [disabled]="!registerForm.valid || isLoading"
+                class="full-width mt-12">
+                <span 
+                    class="pr-6 loading-spinner" 
+                    *ngIf="isLoading">
+                    <mat-spinner [diameter]="20"></mat-spinner>
+                </span>
+                Create Account
+            </button>
+        </div>
+        <div class="mt-12 text-right">
+            <span
+                class="cursor-pointer color-primary"
+                (click)="enableSignInMode()">
+                I already have an account, Log me in.
+            </span>
+        </div>
+    </form>
+</section>

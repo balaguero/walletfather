@@ -1,0 +1,19 @@
+@import 'src/variables.scss';
+
+.signin-main-section {
+    padding: 0 16px 32px;
+}
+
+.register-link {
+    padding-left: 5px;
+    color: $primary-color !important;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+span.loading-spinner {
+    display: inline-block;
+}

@@ -1,0 +1,67 @@
+<section class="signin-main-section">
+    <h2 class="color-primary">{{ alternativeText ? alternativeText : 'Login' }}</h2>
+    <form 
+        [formGroup]="loginForm" 
+        (ngSubmit)="onSubmit()">
+        <!-- Email -->
+        <div>
+            <mat-form-field class="full-width">
+                <input
+                    type="email"
+                    id="email"
+                    formControlName="email"
+                    matInput
+                    placeholder="Email address">   
+                    <mat-error *ngIf="loginForm.get('email').touched && loginForm.get('email').hasError('pattern') && !loginForm.get('email').hasError('required')">
+                        Please enter a valid email address
+                    </mat-error> 
+                    <mat-error *ngIf="loginForm.get('email').touched && loginForm.get('email').hasError('required')">
+                        Please enter your email address
+                    </mat-error>
+            </mat-form-field>
+        </div>
+        <!-- Password -->
+        <div>
+            <mat-form-field class="full-width mb-12">
+                <input
+                    type="password"
+                    id="password"
+                    class="form-control"
+                    formControlName="password"
+                    matInput
+                    placeholder="Password">  
+                    <mat-error *ngIf="loginForm.get('password').touched && loginForm.get('password').hasError('required')">
+                        Please enter your password
+                    </mat-error>
+                    <mat-error *ngIf="loginError !== ''">{{ loginError }}</mat-error>
+            </mat-form-field>
+        </div>
+        <!-- Submit -->
+        <div>
+            <button
+                mat-raised-button
+                color="accent"
+                [disabled]="!loginForm.valid || isLoading"
+                type="submit"
+                class="full-width">
+                <span 
+                    class="pr-6 mr-4 loading-spinner" 
+                    *ngIf="isLoading">
+                    <mat-spinner [diameter]="20"></mat-spinner>
+                </span>
+                Login
+            </button>
+        </div>
+        <!-- Create Account -->
+        <div class="mt-24">
+            <p class="text-center color-primary mb-8">Not registered yet?</p>
+            <button
+                (click)="onRegisterClick()"
+                mat-stroked-button
+                color="accent"
+                class="full-width">
+                Create account
+            </button>
+        </div>
+    </form>
+</section>

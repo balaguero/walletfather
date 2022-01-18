@@ -1,0 +1,39 @@
+<div class="position-relative">
+    <section class="logo-section">
+        <!-- LOGO BY CSS HERE -->
+    </section>
+    <!-- Register mode -->
+    <div [ngSwitch]="dialogContextData.mode">
+        <app-signin
+            *ngSwitchCase="'LOGIN'"
+            (registerButtonClicked)="onClickRegisterButton()"
+            (forgetPasswordClicked)="dialogContextData.mode = 'FORGOT_PASSWORD'"
+            [alternativeText]="dialogContextData.alternativeText.login"
+            (loginCompleted)="onLoginCompleted()"
+            [hideRegisterButton]="dialogContextData.hideRegisterButton"
+            (popupOverlayEmit)="setDialogLoading()">
+        </app-signin>
+        <!-- Sign In mode -->
+        <app-register
+            *ngSwitchCase="'REGISTER'"
+            (registerCompleted)="onRegisterCompleted()"
+            [alternativeText]="dialogContextData.alternativeText.register"
+            (changeUserLoginMode)="dialogContextData.mode = 'LOGIN'"
+            (loginButtonClicked)="onClickSigninButton()">
+        </app-register>
+    </div>
+    <!-- Overlay -->
+    <div 
+        *ngIf="isLoading"
+        class="overlay-signin">
+        <div class="margin-top-50">
+           <app-loading
+                [fullHeight]="true"
+                [isLoading]="isLoading"
+                *ngIf="isLoading">
+            </app-loading> 
+        </div>
+    </div>
+</div>
+
+

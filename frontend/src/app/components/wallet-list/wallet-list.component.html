@@ -1,0 +1,32 @@
+<div class="table-container">
+    <table 
+        mat-table 
+        [dataSource]="dataSource" 
+        class="full-width">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let row"> {{ row.id }} </td>
+        </ng-container>
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let row"> {{ row.address }} </td>
+        </ng-container>
+        <ng-container matColumnDef="privateKey">
+            <th mat-header-cell *matHeaderCellDef> privateKey </th>
+            <td mat-cell *matCellDef="let row">
+                <button 
+                    mat-button
+                    mat-stroked-button
+                    (click)="row.toggleShowPrivateKey()">
+                    <span *ngIf="!row.showPrivateKey">Show</span>
+                    <span *ngIf="row.showPrivateKey">Hide</span>
+                </button>
+                <span *ngIf="!row.showPrivateKey">********</span>
+                <span *ngIf="row.showPrivateKey">{{ row.privateKey }}</span>
+            </td>
+        </ng-container>
+        <!-- Mandatory -->
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+    </table>
+</div>
