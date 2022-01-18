@@ -24,9 +24,6 @@ Thumbs.db
 smart_contract/coverage
 smart_contract/coverage.json
 smart_contract/typechain
-#Hardhat files
-smart_contract/cache
-smart_contract/artifacts
 
 # misc
 /.sass-cache
