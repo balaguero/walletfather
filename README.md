@@ -1,5 +1,5 @@
 # walletfather crypto application for practice
-### Deeloped by Juan Ignacio Balaguero
+### Developed by Juan Ignacio Balaguero
 ### Github: https://github.com/balaguero
 
 ## History
