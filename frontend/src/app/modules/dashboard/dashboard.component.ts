@@ -25,9 +25,11 @@ export class DashboardComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.getMyProfile();
-        this.getWalletFatherList();
-        this.getWalletList();
+        this.getMyProfile()
+            .then(() => {
+                this.getMyWalletFather();
+                this.getWalletList();
+            })
     }
 
     togglePrivateKey(): void {
@@ -43,7 +45,7 @@ export class DashboardComponent implements OnInit {
                 return new Promise(resolve => setTimeout(resolve, 30000));
             })
             .finally(() => {
-                return this.getWalletFatherList();
+                return this.getMyWalletFather();
             });
     }
 
@@ -60,9 +62,9 @@ export class DashboardComponent implements OnInit {
             });
     }
 
-    private getMyProfile(): void {
+    private getMyProfile(): Promise<any> {
         this.isProfileLoading = true;
-        this._serviceBase.httpGet('user/my-profile')
+        return this._serviceBase.httpGet('user/my-profile')
             .toPromise()
             .then((response: any) => {
                 this.userProfile = _.assignIn(new UserProfile(), response); response;
@@ -72,9 +74,9 @@ export class DashboardComponent implements OnInit {
             });
     }
 
-    private getWalletFatherList(): void {
+    private getMyWalletFather(): void {
         this.isWalletFatherLoading = true;
-        this._serviceBase.httpGet('wallet-father/list')
+        this._serviceBase.httpGet(`wallet-father/get-by-owner?owner=${this.userProfile.wallet}`)
             .toPromise()
             .then((response: any) => {
                 if (response && response[0]) {
