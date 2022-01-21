@@ -9,6 +9,7 @@ import { NavbarModule } from './components/navbar/navbar.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AuthInterceptor } from './components/auth/auth-interceptor';
 import { IsLoggedInGuard } from './components/auth/is-logged-in-guard.service';
@@ -55,6 +56,7 @@ const appRoutes: Routes = [
     NavbarModule,
     HttpClientModule,
     MatDialogModule,
+    MatSnackBarModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

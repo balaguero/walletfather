@@ -92,3 +92,24 @@ th, td {
         min-width: 600px;
     }
 }
+
+// NOTIFICATIONS
+.mat-snack-bar-container {
+    color: white !important;
+
+    &.snackbar-success {
+        background-color: $success-color;
+    }
+
+    &.snackbar-error {
+        background-color: $error-color;
+    }
+
+    &.snackbar-warning {
+        background-color: $warning-color;
+    }
+
+    &.snackbar-info {
+        background-color: $info-color;
+    }
+}

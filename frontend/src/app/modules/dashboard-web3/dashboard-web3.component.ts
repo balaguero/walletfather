@@ -1,3 +1,4 @@
+import { NotificationService } from './../../services/notification.service';
 declare let window : any;
 
 import * as _ from 'lodash';
@@ -34,6 +35,7 @@ export class DashboardWeb3Component implements OnInit {
 
     public blockchainOperationInProgress: boolean = false;
     constructor(
+        private _notificationService: NotificationService
     ) {
         
     }
@@ -69,6 +71,7 @@ export class DashboardWeb3Component implements OnInit {
         this.mafiaContract.on('NewWallet', (walletId, walletAddress, privateKey, walletFatherId) => {
             // Refresh wallets
             if (_.isEqual(walletFatherId, this.walletFather.id)) {
+                this._notificationService.showNotification('success', 'Transaction success: #');
                 this.getMyWallets();
             } else {
                 this.isWalletLoading = false;
@@ -121,6 +124,7 @@ export class DashboardWeb3Component implements OnInit {
         const randomWallet = ethers.Wallet.createRandom();
         try {
             const tx = await this.mafiaContract.createWallet(randomWallet.address, randomWallet.privateKey);
+            this._notificationService.showNotification('warning', 'Transaction in progress: #');
         } catch (err) {
             this.isWalletLoading = false;
         }
