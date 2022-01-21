@@ -23,12 +23,16 @@
     "types": ["node"],
     "typeRoots": [
       "node_modules/@types"
-    ]
+    ],
+    "resolveJsonModule": true, // Used by @typechain/hardhat
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": false,
     "strictInputAccessModifiers": false,
-    "strictTemplates": false
+    "strictTemplates": false,
+    "resolveJsonModule": true, // Used by @typechain/hardhat
+    "allowSyntheticDefaultImports": true
   }
 }

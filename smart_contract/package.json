@@ -8,6 +8,7 @@
     "chain": "npx hardhat node",
     "deploy": "npx hardhat run --network localhost scripts/deploy.ts --show-stack-traces",
     "deploy:ropsten": "npx hardhat run --network ropsten scripts/deploy.ts",
+    "deploy:mumbai": "npx hardhat run --network mumbai scripts/deploy.ts",
     "deploy:rinkeby": "npx hardhat run --network rinkeby scripts/deploy.ts",
     "test": "npx hardhat test"
   },

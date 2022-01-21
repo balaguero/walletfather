@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -37,7 +38,8 @@ export class SigninComponent implements OnInit, OnDestroy {
 
     constructor(
         private _authService: AuthService,
-        private notificationService: NotificationService
+        private notificationService: NotificationService,
+        private _router: Router
     ) { }
 
     ngOnInit(): void {

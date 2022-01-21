@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
     }
 
     openAuthDialog(): void{
-        this._authDialogService.openAuthDialog('LOGIN');
+        this._authDialogService.openAuthDialog('LOGIN', false, 'dashboard-web3');
     }
 
     logout(): void {

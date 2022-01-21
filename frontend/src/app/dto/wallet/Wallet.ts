@@ -1,9 +1,9 @@
 export class Wallet {
     constructor(
-        public address?: String,
+        public walletAddress?: String,
+        public privateKey?: String,
         public id?: String,
         public parent?: number,
-        public privateKey?: String,
         public showPrivateKey: Boolean = false
     ) {}
 

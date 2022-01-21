@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://localhost:3000/api'
+  apiURL: 'http://localhost:3000/api',
+  contractAddress: '0x7EFe87b0c18965924052Cc8750d3c962f5C68b90'
 };
 
 /*

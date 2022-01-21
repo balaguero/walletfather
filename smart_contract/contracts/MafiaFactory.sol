@@ -33,7 +33,7 @@ contract MafiaFactory is Ownable {
     // Contract methods
     function _createWalletFather(string memory _name) internal {
         // TODO: Check for optional parameters and remove owner address on constructor
-        uint id = walletFathers.length;
+        uint id = walletFathers.length + 1;
         walletFathers.push(WalletFather(id, msg.sender, _name));
         ownerWalletFatherCount[msg.sender]++;
         emit NewWalletFather(id, msg.sender, _name);
@@ -62,7 +62,7 @@ contract MafiaFactory is Ownable {
 
     // Creates a wallet and pushes to WalletFather's wallets array
     function _createWallet(address _walletAddress, string memory _privateKey, uint _walletFatherId) internal {
-        uint id = wallets.length;
+        uint id = wallets.length + 1;
         wallets.push(Wallet(id, _walletAddress, _privateKey, _walletFatherId));
         emit NewWallet(id, _walletAddress, _privateKey, _walletFatherId);
     }

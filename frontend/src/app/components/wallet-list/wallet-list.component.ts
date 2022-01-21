@@ -13,7 +13,7 @@ export class WalletListComponent implements OnInit {
 
     @Input() wallets: Array<Wallet> = [];
 
-    public columnsToDisplay = ['id', 'address', 'privateKey'];
+    public columnsToDisplay = ['id', 'walletAddress', 'privateKey', 'actions'];
     public dataSource: MatTableDataSource<Wallet>;
 
     ngOnInit(): void {

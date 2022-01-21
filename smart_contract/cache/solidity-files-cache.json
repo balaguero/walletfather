@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/balaguero/Documents/walletfather/smart_contract/contracts/MafiaFactory.sol": {
-      "lastModificationDate": 1642390062557,
-      "contentHash": "d75ba832f0b77761e4d408ad339698bc",
+      "lastModificationDate": 1642739453476,
+      "contentHash": "5137b17f1bda711e0c337f45b2838ccc",
       "sourceName": "contracts/MafiaFactory.sol",
       "solcConfig": {
         "version": "0.8.11",
@@ -39,7 +39,7 @@
       ]
     },
     "/Users/balaguero/Documents/walletfather/smart_contract/contracts/utils/Ownable.sol": {
-      "lastModificationDate": 1642374752487,
+      "lastModificationDate": 1642516683202,
       "contentHash": "5fa9a957494da9728b8d3fe7b4c84c8d",
       "sourceName": "contracts/utils/Ownable.sol",
       "solcConfig": {
@@ -76,7 +76,7 @@
       ]
     },
     "/Users/balaguero/Documents/walletfather/smart_contract/node_modules/hardhat/console.sol": {
-      "lastModificationDate": 1642374860075,
+      "lastModificationDate": 1642522453393,
       "contentHash": "cc4777addd464ea56fa35b1c45df0591",
       "sourceName": "hardhat/console.sol",
       "solcConfig": {
