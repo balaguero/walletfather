@@ -29,7 +29,7 @@ const createWallet = (ownerPrivateKey) => {
  * @returns {String} balance in ethers of any ethereum wallet
  */
 const getBalance = (address) => {
-    const provider = ethers.getDefaultProvider('ropsten');
+    const provider = ethers.getDefaultProvider('ropsten'); // TODO: Remove hardcoded ropsten
     return provider.getBalance(address);
 }
 
