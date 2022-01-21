@@ -70,3 +70,6 @@ It also should create `artifacts` and `typechain-types`. Artifacts contains cont
 2- Run the backend
 
 3- Run the frontend
+
+## SSH
+ssh -i "unmineropichi-1.pem" ubuntu@ec2-54-159-114-21.compute-1.amazonaws.com
